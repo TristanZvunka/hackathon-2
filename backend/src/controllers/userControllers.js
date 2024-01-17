@@ -30,18 +30,6 @@ const add = async (req, res, next) => {
   }
 };
 
-const destroy = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-
-    await tables.user.delete(id);
-
-    res.sendStatus(204);
-  } catch (err) {
-    next(err);
-  }
-};
-
 const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -110,7 +98,6 @@ const checkId = async (req, res, next) => {
 module.exports = {
   readAll,
   add,
-  destroy,
   login,
   checkId,
 };

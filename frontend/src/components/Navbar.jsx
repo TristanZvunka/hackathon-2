@@ -11,8 +11,6 @@ function Navbar() {
     height: "4rem",
     justifyContent: "space-between",
     padding: "0.5rem 1rem 0.5rem 1rem",
-    borderBottom: "solid",
-    borderWidth: ".1rem",
   };
 
   const buttonSX = {
@@ -33,11 +31,13 @@ function Navbar() {
   return (
     <Box>
       <AppBar position="static" sx={navbarSX}>
-        <img
-          src={favicon}
-          alt="Logo du groupe L'Oréal"
-          className="navbar-logo"
-        />
+        <Button color="inherit" sx={buttonSX}>
+          <img
+            src={favicon}
+            alt="Logo du groupe L'Oréal"
+            className="navbar-logo"
+          />
+        </Button>
         <Button color="inherit" sx={buttonSX}>
           <Typography sx={fontSX}> Beauty IA </Typography>
         </Button>

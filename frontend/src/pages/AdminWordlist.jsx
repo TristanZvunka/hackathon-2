@@ -1,24 +1,28 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Lottie from "react-lottie-player";
-import { BarChart, Bar, XAxis, Tooltip, YAxis } from "recharts";
-import { Link } from "react-router-dom";
 
 import mailError from "../../public/Error.json";
+import WordCard from "../components/WordCard";
 
 export default function Admin() {
   const [datas, setDatas] = useState([]);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const [searchForm, setSearchForm] = useState("");
+  function updateForm(e) {
+    setSearchForm(e.target.value);
+  }
+
   const getData = () => {
-    const endpoints = [`${import.meta.env.VITE_BACKEND_URL}/api/datas`];
+    const endpoints = [`${import.meta.env.VITE_BACKEND_URL}/api/datas/all`];
     Promise.all(
       endpoints.map((endpoint) =>
         axios.get(endpoint, { withCredentials: true })
       )
-    ).then(([{ data: donnee }]) => {
-      setDatas(donnee);
+    ).then(([{ data }]) => {
+      setDatas(data);
     });
   };
 
@@ -46,38 +50,29 @@ export default function Admin() {
   if (isLoggedIn) {
     return (
       <div className="min-h-screen h-auto flex items-center flex-col mt-28 p-4">
-        <h1 className="text-3xl md:text-5xl bold text-center">Panel Admin</h1>
-        <h2 className="text-2xl md:text-4xl mt-16 text-center">Stats:</h2>
-        <p className="text-xl md:text-2xl text-center">
-          Mot les plus utilisé dans les questions
-        </p>
-        <div className="flex flex-col justify-center items-center mt-2">
-          <BarChart width={1000} height={400} data={datas}>
-            <XAxis dataKey="mot" />
-            <YAxis />
-            <Tooltip />
-            <Bar dataKey="count" fill="#28292C" />
-          </BarChart>
+        <h1 className="text-3xl md:text-5xl bold text-center">
+          Liste des Mots
+        </h1>
+        <div className="w-full flex justify-center mt-4">
+          <div className="flex px-4 py-1 rounded-full items-center bg-secondary-dark w-full max-w-[30rem] border-2 border-[#28292C]">
+            <div className="bg-[url('/search-icon.svg')] h-8 bg-no-repeat w-12" />
+            <form onChange={updateForm} className="w-full">
+              <input
+                placeholder="Rechercher une liste"
+                className="bg-secondary-dark text-primary-dark outline-0 w-full"
+              />
+            </form>
+          </div>
         </div>
-        <div className="flex gap-4 mt-4 w-full justify-center">
-          <Link
-            to="/admin-users"
-            className="border-2 border-[#28292C] w-full max-w-[30rem] py-2 rounded-2xl mt-8 hover:bg-[#28292C] hover:text-white text-center"
-          >
-            Liste des Admins
-          </Link>
-          <Link
-            to="/admin-blacklist"
-            className="border-2 border-[#28292C] w-full max-w-[30rem] py-2 rounded-2xl mt-8 hover:bg-[#28292C] hover:text-white text-center"
-          >
-            Blacklist
-          </Link>
-          <Link
-            to="/admin-wordlist"
-            className="border-2 border-[#28292C] w-full max-w-[30rem] py-2 rounded-2xl mt-8 hover:bg-[#28292C] hover:text-white text-center"
-          >
-            Liste des Mots
-          </Link>
+        <div className="w-[70%] flex flex-wrap justify-center items-center mt-8 gap-4">
+          {datas &&
+            datas
+              .filter((data) =>
+                data.mot.toLowerCase().includes(searchForm.toLowerCase())
+              )
+              .map((data) => (
+                <WordCard key={data.id} mot={data.mot} count={data.count} />
+              ))}
         </div>
       </div>
     );

@@ -21,17 +21,6 @@ class UserManager extends AbstractManager {
     return rows;
   }
 
-  async delete(id) {
-    const result = await this.database.query(
-      `delete
-             from ${this.table}
-             where id = ?`,
-      [id]
-    );
-
-    return result;
-  }
-
   async read(id) {
     const [rows] = await this.database.query(
       `select *
