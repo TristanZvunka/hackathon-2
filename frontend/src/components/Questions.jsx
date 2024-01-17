@@ -4,14 +4,15 @@ import "../App.css";
 function Questions() {
   return (
     <div className="questions">
-      <h1 className="test">Votre Question bien-être</h1>
-      <form action="">
+      <h1 className="Intitulé">Votre Question bien-être</h1>
+      <form className="form">
         <input
           id="questionInput"
           type="text"
           name="Questions"
-          placeholder="Question"
-          className="Questionimput"
+          placeholder="Quelle est votre question ?"
+          className="QuestionInput"
+          style={{ width: 1200, height: 150 }}
         />
       </form>
       <button type="button" className="Envoyer">

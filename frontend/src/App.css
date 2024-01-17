@@ -15,24 +15,38 @@
   background-color: rgb(32, 31, 31);
 }
 
-.test {
-  color: rgb(232, 222, 222);
+.Intitulé {
+  color: #e6e3de;
+  font-size: 4rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
 }
-
 .Envoyer {
-  width: 8rem;
-  height: 2rem;
+  width: 15rem;
+  height: 4rem;
   margin-top: 2rem;
-  font-size: 1rem;
+  margin-left: 1rem;
+  font-size: 2rem;
+  border-radius: 8rem;
+  background: none;
+  color: #e6e3de;
+  border: 2px solid #e6e3de;
+  &:hover {
+    background-color: #e6e3de;
+    color: #000;
+  }
 }
 
-.Questionimput {
+.QuestionInput {
   width: 20rem;
   height: 2rem;
   margin-top: 2rem;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: bold;
   text-align: center;
+  border-radius: 1rem;
+  background-color: #e6e3de;
+  color: #000;
 }
 
 body {
