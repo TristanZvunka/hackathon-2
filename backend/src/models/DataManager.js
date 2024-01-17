@@ -35,6 +35,16 @@ class DataManager extends AbstractManager {
     return result;
   }
 
+  async readTen() {
+    const [result] = await this.database.query(
+      `select *
+             from ${this.table}
+             order by count desc
+             limit 10`
+    );
+    return result;
+  }
+
   async readAll() {
     const [result] = await this.database.query(
       `select *
