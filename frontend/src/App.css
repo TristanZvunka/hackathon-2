@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Base du site */
 
 * {
@@ -70,7 +69,6 @@ body {
   width: 8rem;
   margin-left: 0.5rem;
 }
-
 
 .navbar-menu {
   display: flex;
