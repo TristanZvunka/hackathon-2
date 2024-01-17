@@ -5,15 +5,14 @@ class UserManager extends AbstractManager {
     super({ table: "user" });
   }
 
-  async create(user) {
-    const { email, password } = user;
+  async create(email, hashedPassword) {
     const [result] = await this.database.query(
       `insert into ${this.table} (email, password)
              values (?, ?)`,
-      [email, password]
+      [email, hashedPassword]
     );
 
-    return result.insertId;
+    return result;
   }
 
   async readAll() {

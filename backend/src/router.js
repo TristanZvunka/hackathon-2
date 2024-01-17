@@ -25,8 +25,9 @@ router.use(authCheck);
 
 router.get("/datas", dataControllers.readAll);
 
-router.get("/users", userControllers.readAll);
 router.post("/users", hashPassword, userControllers.add);
+router.get("/users", userControllers.readAll);
+
 router.post("/users/delete", userControllers.destroy);
 
 router.get("/blacklists", blacklistControllers.readAll);

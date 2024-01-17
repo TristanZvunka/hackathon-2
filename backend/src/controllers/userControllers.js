@@ -68,14 +68,16 @@ const login = async (req, res, next) => {
           { expiresIn: "1h" }
         );
 
-        res.cookies("token", token, {
-          httpOnly: true,
-          maxAge: 3600000,
-        });
-
-        res.status(200).send({
-          message: "Authentification réussie",
-        });
+        if (checkUser.length === 1) {
+          res.cookie("token", token, {
+            httpOnly: true,
+            maxAge: 3600000,
+          });
+          res.status(200).send({
+            message: "Authentification réussie",
+            admin: true,
+          });
+        }
       }
     }
   } catch (err) {
