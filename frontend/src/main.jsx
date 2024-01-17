@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import Questions from "./components/Questions";
+import Admin from "./pages/Admin";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/beauty-ia",
         element: <Questions />,
+      },
+      {
+        path: "/admin",
+        element: <Admin />,
       },
     ],
   },
