@@ -33,12 +33,13 @@ function Navbar() {
     <Box>
       <AppBar position="static" sx={navbarSX}>
         <Link to="/" className="navbar-menu">
-        <Button color="inherit" sx={buttonSX}>
-          <img
-            src={favicon}
-            alt="Logo du groupe L'Oréal"
-            className="navbar-logo"
-          />
+          <Button color="inherit" sx={buttonSX}>
+            <img
+              src={favicon}
+              alt="Logo du groupe L'Oréal"
+              className="navbar-logo"
+            />
+          </Button>
         </Link>
         <div className="navbar-menu">
           <div className="menu-divider" />
