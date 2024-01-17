@@ -2,9 +2,13 @@ const express = require("express");
 
 const router = express.Router();
 
+const userControllers = require("./controllers/userControllers");
 const blacklistControllers = require("./controllers/blacklistControllers");
 const emailControllers = require("./controllers/emailControllers");
 const dataControllers = require("./controllers/dataControllers");
+
+const { authCheck } = require("./services/authCheckMiddleware");
+const { hashPassword } = require("./services/auth");
 
 /* ************************************************************************* */
 // Define Your API Routes Here
@@ -12,8 +16,19 @@ const dataControllers = require("./controllers/dataControllers");
 
 router.post("/emails", emailControllers.add);
 
-router.get("/datas", dataControllers.readAll);
 router.post("/datas", dataControllers.add);
+
+router.post("/users/login", userControllers.login);
+router.get("/users/check-id", userControllers.checkId);
+
+router.use(authCheck);
+
+router.get("/datas", dataControllers.readAll);
+
+router.post("/users", hashPassword, userControllers.add);
+router.get("/users", userControllers.readAll);
+
+router.post("/users/delete", userControllers.destroy);
 
 router.get("/blacklists", blacklistControllers.readAll);
 router.post("/blacklists", blacklistControllers.add);

@@ -6,7 +6,9 @@ const EmailManager = require("./models/EmailManager");
 const DataManager = require("./models/DataManager");
 const BlacklistManager = require("./models/BlacklistManager");
 
-const managers = [BlacklistManager, DataManager, EmailManager];
+const UserManager = require("./models/UserManager");
+
+const managers = [UserManager, BlacklistManager, DataManager, EmailManager];
 
 const tables = {};
 managers.forEach((ManagerClass) => {
