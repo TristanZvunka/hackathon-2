@@ -12,8 +12,6 @@ function Navbar() {
     height: "4rem",
     justifyContent: "space-between",
     padding: "0.5rem 1rem 0.5rem 1rem",
-    borderBottom: "solid",
-    borderWidth: ".1rem",
   };
 
   const buttonSX = {
@@ -35,6 +33,7 @@ function Navbar() {
     <Box>
       <AppBar position="static" sx={navbarSX}>
         <Link to="/" className="navbar-menu">
+        <Button color="inherit" sx={buttonSX}>
           <img
             src={favicon}
             alt="Logo du groupe L'Oréal"

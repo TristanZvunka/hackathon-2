@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 /* Base du site */
 
 * {
@@ -24,24 +29,39 @@ body {
   background-color: rgb(32, 31, 31);
 }
 
-.test {
-  color: rgb(232, 222, 222);
+.Intitulé {
+  color: #e6e3de;
+  font-size: 4rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
 }
 
 .Envoyer {
-  width: 8rem;
-  height: 2rem;
+  width: 15rem;
+  height: 4rem;
   margin-top: 2rem;
-  font-size: 1rem;
+  margin-left: 1rem;
+  font-size: 2rem;
+  border-radius: 8rem;
+  background: none;
+  color: #e6e3de;
+  border: 2px solid #e6e3de;
+  &:hover {
+    background-color: #e6e3de;
+    color: #000;
+  }
 }
 
-.Questionimput {
+.QuestionInput {
   width: 20rem;
   height: 2rem;
   margin-top: 2rem;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: bold;
   text-align: center;
+  border-radius: 1rem;
+  background-color: #e6e3de;
+  color: #000;
 }
 
 /* navbar */
@@ -50,6 +70,7 @@ body {
   width: 8rem;
   margin-left: 0.5rem;
 }
+
 
 .navbar-menu {
   display: flex;
@@ -81,4 +102,37 @@ body {
   bottom: 8rem;
   left: 50%;
   translate: -50%;
+
+.body-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.body-center {
+  display: flex;
+  align-items: center;
+  width: 90vw;
+  height: 70vh;
+  border: solid 1px black;
+}
+
+.home-page-title {
+  position: absolute;
+  width: 50rem;
+  translate: 25vh;
+}
+
+.spline {
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  max-height: 100vh;
+}
+
+.home-page-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

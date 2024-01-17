@@ -1,9 +1,27 @@
 import { Link } from "react-router-dom";
 import Spline from "@splinetool/react-spline";
+
 import Button from "@mui/material/Button";
+import { Typography } from "@mui/material";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
+
 import "../App.css";
+
+
+
+const buttonSX = {
+  width: "10rem",
+  border: "solid",
+  borderColor: "black",
+  borderRadius: "20px",
+  transition: "transform 250ms",
+  borderWidth: "2px",
+  "&:hover": {
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
+    transform: "scale(0.9)",
+  },
+};
 
 function HomePage() {
   const buttonStyle = {
@@ -35,6 +53,7 @@ function HomePage() {
           Posez votre question
         </Button>
         <ArrowBackIosRoundedIcon sx={arrowSx} />
+
       </div>
     </div>
   );

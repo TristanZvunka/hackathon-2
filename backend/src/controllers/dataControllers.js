@@ -3,7 +3,8 @@ const tables = require("../tables");
 const add = async (req, res, next) => {
   const { phrase } = req.body;
   try {
-    const mot = phrase.split(" ");
+    const newPhrase = phrase.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ""); // eslint-disable-line
+    const mot = newPhrase.split(" ");
 
     for (let i = 0; i < mot.length; i += 1) {
       mot[i] = mot[i].toLowerCase();
@@ -13,6 +14,8 @@ const add = async (req, res, next) => {
       if (blacklist !== undefined) {
         continue; // eslint-disable-line
       }
+
+      if (mot[i] === "") continue; // eslint-disable-line
 
       const usedWord = await tables.data.read(mot[i]); // eslint-disable-line
 
@@ -25,6 +28,16 @@ const add = async (req, res, next) => {
       }
     }
     res.status(201).send({ phrase });
+  } catch (err) {
+    next(err);
+  }
+};
+
+const readTen = async (req, res, next) => {
+  try {
+    const data = await tables.data.readTen();
+
+    res.status(200).json(data);
   } catch (err) {
     next(err);
   }
@@ -43,4 +56,5 @@ const readAll = async (req, res, next) => {
 module.exports = {
   add,
   readAll,
+  readTen,
 };

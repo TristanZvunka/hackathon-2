@@ -23,12 +23,11 @@ router.get("/users/check-id", userControllers.checkId);
 
 router.use(authCheck);
 
-router.get("/datas", dataControllers.readAll);
+router.get("/datas", dataControllers.readTen);
+router.get("/datas/all", dataControllers.readAll);
 
 router.post("/users", hashPassword, userControllers.add);
 router.get("/users", userControllers.readAll);
-
-router.post("/users/delete", userControllers.destroy);
 
 router.get("/blacklists", blacklistControllers.readAll);
 router.post("/blacklists", blacklistControllers.add);

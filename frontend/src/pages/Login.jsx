@@ -81,7 +81,7 @@ export default function SignInSide() {
           theme: "light",
         });
         setTimeout(() => {
-          window.location.href = "/";
+          window.location.href = "/admin";
         }, 3800);
       } else {
         toast.error(response.data.message, {
@@ -123,9 +123,9 @@ export default function SignInSide() {
             loop
             animationData={LogInProgress}
             play
-            style={{ width: 120, height: 120 }}
+            style={{ width: 200, height: 200 }}
           />
-          <h1>Vous êtes déjà connecté(e)</h1>
+          <h1 className="text-3xl">Vous êtes déjà connecté(e)</h1>
         </div>
       </main>
     );
@@ -229,9 +229,9 @@ export default function SignInSide() {
         loop
         animationData={LogInProgress}
         play
-        style={{ width: 120, height: 120 }}
+        style={{ width: 200, height: 200 }}
       />
-      <h1>Connexion en cours...</h1>
+      <h1 className="text-3xl">Connexion en cours...</h1>
     </div>
   );
 }
