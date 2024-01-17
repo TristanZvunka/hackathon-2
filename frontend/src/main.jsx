@@ -3,17 +3,20 @@ import ReactDOM from "react-dom/client";
 import { ToastContainer } from "react-toastify";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Questions from "./components/Questions";
+
 import "./App.css";
+
 import App from "./App";
-import HomePage from "./pages/HomePage";
 
 import "react-toastify/dist/ReactToastify.css";
 
+import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
+import Questions from "./components/Questions";
 
 const router = createBrowserRouter([
   {
+    path: "/",
     element: <App />,
     children: [
       {
@@ -24,11 +27,12 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
-    {
-    path: "/Questions",
-    element: <Questions />,
-  },
+      {
+        path: "/beauty-ia",
+        element: <Questions />,
+      },
     ],
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
