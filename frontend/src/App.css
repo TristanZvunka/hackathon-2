@@ -2,12 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Base du site */
+
 * {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  background-color: linear-gradient(145deg, #f6f3ee, #cfccc8);
+}
+
+/* ------- */
 
 .questions {
   display: flex;
@@ -25,6 +35,7 @@
   font-weight: bold;
   padding-bottom: 1rem;
 }
+
 .Envoyer {
   width: 15rem;
   height: 4rem;
@@ -53,14 +64,44 @@
   color: #000;
 }
 
-body {
-  margin: 0;
-  background-color: white;
-}
+/* navbar */
 
 .navbar-logo {
   width: 8rem;
   margin-left: 0.5rem;
+}
+
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu-divider {
+  width: 1px;
+  height: 1rem;
+  background-color: white;
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+/* home page */
+
+.homepage-body-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 90vh;
+}
+
+.content-button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 8rem;
+  left: 50%;
+  translate: -50%;
 }
 
 .body-content {

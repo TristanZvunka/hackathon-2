@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
@@ -31,19 +32,30 @@ function Navbar() {
   return (
     <Box>
       <AppBar position="static" sx={navbarSX}>
+        <Link to="/" className="navbar-menu">
         <Button color="inherit" sx={buttonSX}>
           <img
             src={favicon}
             alt="Logo du groupe L'Oréal"
             className="navbar-logo"
           />
-        </Button>
-        <Button color="inherit" sx={buttonSX}>
-          <Typography sx={fontSX}> Beauty IA </Typography>
-        </Button>
-        <Button color="inherit" sx={buttonSX}>
-          <Typography sx={fontSX}> SHOP </Typography>
-        </Button>
+        </Link>
+        <div className="navbar-menu">
+          <div className="menu-divider" />
+          <Button
+            color="inherit"
+            sx={buttonSX}
+            component={Link}
+            to="/beauty-ia"
+          >
+            <Typography sx={fontSX}> Beauty IA </Typography>
+          </Button>
+          <div className="menu-divider" />
+          <Button color="inherit" sx={buttonSX}>
+            <Typography sx={fontSX}> Contact </Typography>
+          </Button>
+          <div className="menu-divider" />
+        </div>
       </AppBar>
     </Box>
   );
