@@ -32,6 +32,7 @@ app.use(
     origin: [
       process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
     ],
+    credentials: true,
   })
 );
 
@@ -68,8 +69,9 @@ app.use(express.json());
 
 // Then, require the module and use it as middleware in your Express application:
 
-// const cookieParser = require("cookie-parser");
-// app.use(cookieParser());
+const cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
 
 // Once `cookie-parser` is set up, you can read and set cookies in your routes.
 // For example, to set a cookie named "username" with the value "john":
@@ -103,11 +105,11 @@ app.use("/api", router);
 // 1. Uncomment the lines related to serving static files and redirecting unhandled requests.
 // 2. Ensure that the `reactBuildPath` points to the correct directory where your frontend's build artifacts are located.
 
+/*
 const reactBuildPath = `${__dirname}/../../frontend/dist`;
 
-app.use("/public/", express.static(`${__dirname}/../public`));
-
 // Serve react resources
+
 app.use(express.static(reactBuildPath));
 
 // Redirect unhandled requests to the react index file
@@ -115,6 +117,7 @@ app.use(express.static(reactBuildPath));
 app.get("*", (req, res) => {
   res.sendFile(`${reactBuildPath}/index.html`);
 });
+*/
 
 /* ************************************************************************* */
 
