@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
-import Questions from "./components/Questions";
+import Questions from "./pages/Questions";
 import Admin from "./pages/Admin";
 
 const router = createBrowserRouter([
