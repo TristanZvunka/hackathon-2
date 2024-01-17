@@ -13,3 +13,9 @@ create table data (
   count INT NOT NULL
 );
 
+
+create table blacklist (
+  id int unsigned primary key auto_increment not null,
+  mot VARCHAR(255) NOT NULL
+);
+

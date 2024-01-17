@@ -3,80 +3,14 @@ const tables = require("../tables");
 const add = async (req, res, next) => {
   const { phrase } = req.body;
   try {
-    const blacklistWord = [
-      "le",
-      "la",
-      "les",
-      "un",
-      "une",
-      "des",
-      "du",
-      "de",
-      "d'",
-      "l'",
-      "et",
-      "ou",
-      "où",
-      "à",
-      "a",
-      "au",
-      "aux",
-      "en",
-      "dans",
-      "par",
-      "pour",
-      "sur",
-      "sous",
-      "vers",
-      "avec",
-      "sans",
-      "chez",
-      "entre",
-      "mais",
-      "donc",
-      "or",
-      "ni",
-      "car",
-      "que",
-      "qui",
-      "quoi",
-      "quand",
-      "comment",
-      "pourquoi",
-      "combien",
-      "quel",
-      "quelle",
-      "quels",
-      "quelles",
-      "si",
-      "comme",
-      "lorsque",
-      "lorsqu'",
-      "lors",
-      "puisque",
-      "quoique",
-      "afin",
-      "alors",
-      "aussi",
-      "autant",
-      "autre",
-      "autres",
-      "autrement",
-      "autour",
-      "autrefois",
-      "autrui",
-      "avant",
-      "avec",
-      "bien",
-      "bientôt",
-    ];
-
     const mot = phrase.split(" ");
 
     for (let i = 0; i < mot.length; i += 1) {
       mot[i] = mot[i].toLowerCase();
 
-      if (blacklistWord.includes(mot[i])) {
+      const blacklist = await tables.blacklist.read(mot[i]); // eslint-disable-line
+
+      if (blacklist !== undefined) {
         continue; // eslint-disable-line
       }
 
