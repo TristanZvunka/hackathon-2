@@ -11,30 +11,21 @@ const database = require("./database/client");
 
 const seed = async () => {
   try {
-    // Declare an array to store the query promises
-    // See why here: https://eslint.org/docs/latest/rules/no-await-in-loop
-    const queries = [];
-
     /* ************************************************************************* */
 
-    // Generating Seed Data
+    const queriesEmail = [];
 
-    // Optional: Truncate tables (remove existing data)
-    await database.query("truncate item");
-
-    // Insert fake data into the 'item' table
-    for (let i = 0; i < 10; i += 1) {
-      queries.push(
-        database.query("insert into item(title) values (?)", [
-          faker.lorem.word(),
+    // Insert fake data into the 'email' table
+    for (let i = 0; i < 50; i += 1) {
+      queriesEmail.push(
+        database.query("insert into email(email) values (?)", [
+          faker.lorem.words({ min: 1, max: 3 }),
         ])
       );
     }
 
-    /* ************************************************************************* */
-
     // Wait for all the insertion queries to complete
-    await Promise.all(queries);
+    await Promise.all(queriesEmail);
 
     // Close the database connection
     database.end();
