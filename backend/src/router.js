@@ -1,24 +1,23 @@
 const express = require("express");
-const multer = require("multer");
 
-const upload = multer({ dest: "public/uploads" });
 const router = express.Router();
+
+const blacklistControllers = require("./controllers/blacklistControllers");
+const emailControllers = require("./controllers/emailControllers");
+const dataControllers = require("./controllers/dataControllers");
 
 /* ************************************************************************* */
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-// Import userController module for handling item-related operations
-const userController = require("./controllers/userController");
+router.post("/emails", emailControllers.add);
 
-// Route to get a list of items
-router.get("/users", userController.browse);
+router.get("/datas", dataControllers.readAll);
+router.post("/datas", dataControllers.add);
 
-// Route to get a specific item by ID
-router.get("/users/:id", userController.read);
-
-// Route to add a new item
-router.post("/users", upload.single("avatar"), userController.add);
+router.get("/blacklists", blacklistControllers.readAll);
+router.post("/blacklists", blacklistControllers.add);
+router.post("/blacklists/delete", blacklistControllers.destroy);
 
 /* ************************************************************************* */
 

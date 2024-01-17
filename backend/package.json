@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "crud:maker": "node ./node_modules/wild-js-crud/index.js",
     "dev": "nodemon index.js",
     "db:migrate": "node migrate.js",
     "db:seed": "node seed.js",
@@ -11,9 +12,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "joi": "^17.11.1",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.5.2",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "wild-js-crud": "^1.2.2"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
