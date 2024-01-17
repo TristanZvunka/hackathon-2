@@ -30,6 +30,17 @@ const add = async (req, res, next) => {
   }
 };
 
+const readAll = async (req, res, next) => {
+  try {
+    const data = await tables.data.readAll();
+
+    res.status(200).json(data);
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   add,
+  readAll,
 };
