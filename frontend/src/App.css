@@ -102,6 +102,7 @@ body {
   bottom: 8rem;
   left: 50%;
   translate: -50%;
+}
 
 .body-content {
   display: flex;
