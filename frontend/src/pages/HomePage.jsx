@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
-import Spline from "@splinetool/react-spline";
+import React, { Suspense } from "react";
 
 import Button from "@mui/material/Button";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 
 import "../App.css";
+import "./loader.css";
+
+const Spline = React.lazy(() => import("@splinetool/react-spline"));
 
 function HomePage() {
   const buttonStyle = {
@@ -16,6 +19,7 @@ function HomePage() {
     color: "#28292C",
     transition: "transform 250ms",
     boxShadow: "0 10px 10px rgba(0, 0, 0, 0.10)",
+    backdropFilter: "blur(10px)",
     "&:hover": {
       backgroundColor: "rgba(0, 0, 0, 0.05)",
       transform: "scale(0.9)",
@@ -28,10 +32,26 @@ function HomePage() {
 
   return (
     <div className="homepage-body-content">
-      <Spline
-        className="spline"
-        scene="https://prod.spline.design/ISRA1bZLQVEKa8wW/scene.splinecode"
-      />
+      <Suspense
+        fallback={
+          <div className="banter-loader">
+            <div className="banter-loader__box" />
+            <div className="banter-loader__box" />
+            <div className="banter-loader__box" />
+            <div className="banter-loader__box" />
+            <div className="banter-loader__box" />
+            <div className="banter-loader__box" />
+            <div className="banter-loader__box" />
+            <div className="banter-loader__box" />
+            <div className="banter-loader__box" />
+          </div>
+        }
+      >
+        <Spline
+          className="spline"
+          scene="https://prod.spline.design/ISRA1bZLQVEKa8wW/scene.splinecode"
+        />
+      </Suspense>
       <div className="content-button">
         <ArrowForwardIosRoundedIcon sx={arrowSx} />
         <Button sx={buttonStyle} component={Link} to="/beauty-ia">
