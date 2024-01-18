@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
+import PsychologyIcon from "@mui/icons-material/Psychology";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import favicon from "../assets/HomeIcon.svg";
 
 function Navbar() {
@@ -30,40 +33,127 @@ function Navbar() {
   };
 
   return (
-    <Box>
-      <AppBar position="static" sx={navbarSX}>
-        <Link to="/" className="navbar-menu">
-          <Button color="inherit" sx={buttonSX}>
-            <img
-              src={favicon}
-              alt="Logo du groupe L'Oréal"
-              className="navbar-logo"
-            />
-          </Button>
-        </Link>
-        <div className="navbar-menu">
-          <div className="menu-divider" />
-          <Button
-            color="inherit"
-            sx={buttonSX}
-            component={Link}
-            to="/beauty-ia"
-          >
-            <Typography sx={fontSX}> Beauty IA </Typography>
-          </Button>
-          <div className="menu-divider" />
-          <Button
-            color="inherit"
-            sx={buttonSX}
-            component={Link}
-            to="https://www.loreal-paris.fr/"
-          >
-            <Typography sx={fontSX}> Boutique </Typography>
-          </Button>
-          <div className="menu-divider" />
+    <>
+      <Box>
+        <AppBar position="static" sx={navbarSX}>
+          <Link to="/" className="navbar-menu">
+            <Button color="inherit" sx={buttonSX}>
+              <img
+                src={favicon}
+                alt="Logo du groupe L'Oréal"
+                className="navbar-logo"
+              />
+            </Button>
+          </Link>
+          <div className="navbar-menu navbar-menu-desktop">
+            <div className="menu-divider" />
+            <Button
+              color="inherit"
+              sx={buttonSX}
+              component={Link}
+              to="/beauty-ia"
+            >
+              <Typography sx={fontSX}> Beauty IA </Typography>
+            </Button>
+            <div className="menu-divider" />
+            <Button
+              color="inherit"
+              sx={buttonSX}
+              component={Link}
+              to="https://www.loreal-paris.fr/"
+            >
+              <Typography sx={(fontSX, { marginRight: "1rem" })}>
+                {" "}
+                Boutique{" "}
+              </Typography>
+              <ShoppingCartIcon />
+            </Button>
+            <div className="menu-divider" />
+          </div>
+          <div className="navbar-menu navbar-menu-mobile">
+            <IconButton
+              color="inherit"
+              sx={(fontSX, buttonSX)}
+              component={Link}
+              to="https://www.loreal-paris.fr/"
+            >
+              <PsychologyIcon />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              sx={(fontSX, buttonSX)}
+              component={Link}
+              to="https://www.loreal-paris.fr/"
+            >
+              <ShoppingCartIcon />
+            </IconButton>
+          </div>
+        </AppBar>
+      </Box>
+      <div className="container-pub">
+        <div className="horizontal-scrolling-items">
+          <div className="horizontal-scrolling-items__item">
+            Lancôme | Giorgio Armani-Beauty | Yves Saint Laurent Beauté |
+            Biotherm | Kiehl’s | Ralph Lauren | Shu Uemura | Cacharel | Helena
+            Rubinstein | Clarisonic | Diesel | Viktor & Rolf | Yue Sai | Maison
+            Margiela | Urban Decay | Guy Laroche | Paloma Picasso | Proenza
+            Schouler | L’Oréal Paris | Magic | Garnier | Maybelline | African
+            Beauty Brands | Essie | NYX Professional MakeUp | L’Oréal
+            Professionnel Paris | Kérastase | Redken | Matrix | Pureology | Shu
+            Uemura Art of Hair | Mizani | Decléor | Carita | Vichy | La
+            Roche-Posay | SkinCeuticals | Roger & Gallet | Sanoflore |
+          </div>
+
+          <div className="horizontal-scrolling-items__item">
+            Lancôme | Giorgio Armani-Beauty | Yves Saint Laurent Beauté |
+            Biotherm | Kiehl’s | Ralph Lauren | Shu Uemura | Cacharel | Helena
+            Rubinstein | Clarisonic | Diesel | Viktor & Rolf | Yue Sai | Maison
+            Margiela | Urban Decay | Guy Laroche | Paloma Picasso | Proenza
+            Schouler | L’Oréal Paris | Magic | Garnier | Maybelline | African
+            Beauty Brands | Essie | NYX Professional MakeUp | L’Oréal
+            Professionnel Paris | Kérastase | Redken | Matrix | Pureology | Shu
+            Uemura Art of Hair | Mizani | Decléor | Carita | Vichy | La
+            Roche-Posay | SkinCeuticals | Roger & Gallet | Sanoflore |
+          </div>
+
+          <div className="horizontal-scrolling-items__item">
+            Lancôme | Giorgio Armani-Beauty | Yves Saint Laurent Beauté |
+            Biotherm | Kiehl’s | Ralph Lauren | Shu Uemura | Cacharel | Helena
+            Rubinstein | Clarisonic | Diesel | Viktor & Rolf | Yue Sai | Maison
+            Margiela | Urban Decay | Guy Laroche | Paloma Picasso | Proenza
+            Schouler | L’Oréal Paris | Magic | Garnier | Maybelline | African
+            Beauty Brands | Essie | NYX Professional MakeUp | L’Oréal
+            Professionnel Paris | Kérastase | Redken | Matrix | Pureology | Shu
+            Uemura Art of Hair | Mizani | Decléor | Carita | Vichy | La
+            Roche-Posay | SkinCeuticals | Roger & Gallet | Sanoflore |
+          </div>
+
+          <div className="horizontal-scrolling-items__item">
+            Lancôme | Giorgio Armani-Beauty | Yves Saint Laurent Beauté |
+            Biotherm | Kiehl’s | Ralph Lauren | Shu Uemura | Cacharel | Helena
+            Rubinstein | Clarisonic | Diesel | Viktor & Rolf | Yue Sai | Maison
+            Margiela | Urban Decay | Guy Laroche | Paloma Picasso | Proenza
+            Schouler | L’Oréal Paris | Magic | Garnier | Maybelline | African
+            Beauty Brands | Essie | NYX Professional MakeUp | L’Oréal
+            Professionnel Paris | Kérastase | Redken | Matrix | Pureology | Shu
+            Uemura Art of Hair | Mizani | Decléor | Carita | Vichy | La
+            Roche-Posay | SkinCeuticals | Roger & Gallet | Sanoflore |
+          </div>
+
+          <div className="horizontal-scrolling-items__item">
+            Lancôme | Giorgio Armani-Beauty | Yves Saint Laurent Beauté |
+            Biotherm | Kiehl’s | Ralph Lauren | Shu Uemura | Cacharel | Helena
+            Rubinstein | Clarisonic | Diesel | Viktor & Rolf | Yue Sai | Maison
+            Margiela | Urban Decay | Guy Laroche | Paloma Picasso | Proenza
+            Schouler | L’Oréal Paris | Magic | Garnier | Maybelline | African
+            Beauty Brands | Essie | NYX Professional MakeUp | L’Oréal
+            Professionnel Paris | Kérastase | Redken | Matrix | Pureology | Shu
+            Uemura Art of Hair | Mizani | Decléor | Carita | Vichy | La
+            Roche-Posay | SkinCeuticals | Roger & Gallet | Sanoflore |
+          </div>
         </div>
-      </AppBar>
-    </Box>
+      </div>
+    </>
   );
 }
 
