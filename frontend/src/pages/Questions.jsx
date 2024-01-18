@@ -11,7 +11,7 @@ import emailjs from "emailjs-com";
 import "../App.css";
 
 const openai = new OpenAI({
-  apiKey: `API KEY`,
+  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
   dangerouslyAllowBrowser: true,
 });
 
@@ -68,16 +68,20 @@ export default function Questions() {
           }
         )
         .then((response) => {
-          emailjs.init("1tsnVu6m1OYTd4YKX");
+          emailjs.init(import.meta.env.VITE_EMAILJS_USER_ID);
           emailjs
-            .send("service_aano7tg", "template_z6s4m9w", {
-              email: emailForm,
-              response: gptResult.response,
-              product01: gptResult.product01,
-              product02: gptResult.product02,
-              warning: gptResult.warning,
-              promo,
-            })
+            .send(
+              import.meta.env.VITE_EMAILJS_SERVICE_ID,
+              import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+              {
+                email: emailForm,
+                response: gptResult.response,
+                product01: gptResult.product01,
+                product02: gptResult.product02,
+                warning: gptResult.warning,
+                promo,
+              }
+            )
             .then(
               () => {
                 toast.success(response.data.message, {
