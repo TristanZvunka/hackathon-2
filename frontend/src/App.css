@@ -13,7 +13,7 @@
 
 body {
   margin: 0;
-  background-color: linear-gradient(145deg, #f6f3ee, #cfccc8);
+  background-color: #e6e3de;
 }
 
 /* ------- */
@@ -88,7 +88,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 100vw;
+  width: 99vw;
   height: 90vh;
 }
 
@@ -129,3 +129,5 @@ body {
   width: 90vw;
   max-height: 90vh;
 }
+
+/* cacahuète */
