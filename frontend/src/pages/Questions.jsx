@@ -70,7 +70,7 @@ export default function Questions() {
         .then((response) => {
           emailjs.init("1tsnVu6m1OYTd4YKX");
           emailjs
-            .send("service_aano7tg", "template_z6oxvr9", {
+            .send("service_aano7tg", "template_z6s4m9w", {
               email: emailForm,
               response: gptResult.response,
               product01: gptResult.product01,
