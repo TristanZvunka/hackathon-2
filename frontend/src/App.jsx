@@ -33,7 +33,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <main className="min-h-screen">
+      <main>
         <Outlet />
         <button
           type="button"
