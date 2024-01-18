@@ -43,6 +43,20 @@ export default function Admin() {
       });
   }, []);
 
+  // eslint-disable-next-line
+  function CustomTooltip({ active, payload, label }) {
+    // eslint-disable-next-line
+    if (active && payload && payload.length) {
+      return (
+        <div className="py-4 px-2 border-2 border-[#e6e3de] text-[#e6e3de] rounded-xl ">
+          <p>Mot: {label}</p>
+          {/* eslint-disable-next-line */}
+          <p>Utilisation: {payload[0].value}</p>
+        </div>
+      );
+    }
+  }
+
   if (isLoggedIn) {
     return (
       <div className="min-h-screen h-auto flex items-center flex-col mt-28 p-4 bg-[#e6e3de]">
@@ -55,7 +69,7 @@ export default function Admin() {
           <BarChart width={1000} height={400} data={datas}>
             <XAxis dataKey="mot" />
             <YAxis />
-            <Tooltip />
+            <Tooltip content={<CustomTooltip />} />
             <Bar dataKey="count" fill="#28292C" />
           </BarChart>
         </div>
