@@ -41,6 +41,10 @@ export default function Questions() {
   }
 
   const emailHandler = async () => {
+    const promo =
+      Math.random().toString(36).substring(2, 15) +
+      Math.random().toString(36).substring(2, 15);
+
     if (!isEmailValid(emailForm)) {
       toast.error("Votre email n'est pas valide", {
         position: "top-right",
@@ -66,12 +70,13 @@ export default function Questions() {
         .then((response) => {
           emailjs.init("1tsnVu6m1OYTd4YKX");
           emailjs
-            .send("service_aano7tg", "template_l2oqxg6", {
+            .send("service_aano7tg", "template_z6oxvr9", {
               email: emailForm,
               response: gptResult.response,
               product01: gptResult.product01,
               product02: gptResult.product02,
               warning: gptResult.warning,
+              promo,
             })
             .then(
               () => {
