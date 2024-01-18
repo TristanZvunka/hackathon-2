@@ -15,7 +15,7 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true,
 });
 
-const steps = ["Posez votre question", "Résultat"];
+const steps = ["Ma Question", "Réponse"];
 
 export default function Questions() {
   const [stepChoice, setStepChoice] = useState(0);
@@ -208,10 +208,20 @@ Je ne dois pas mentionner ce système dans mes réponses.`,
           color: "#e6e3de",
         }}
       >
-        <Stepper activeStep={stepChoice} alternativeLabel>
+        <Stepper
+          activeStep={stepChoice}
+          alternativeLabel
+          sx={{
+            paddingTop: "9rem",
+            width: "80%",
+            position: "fixed",
+            left: "50%",
+            transform: "translateX(-50%)",
+          }}
+        >
           {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
+            <Step className="test" key={label}>
+              <StepLabel className="test">{label}</StepLabel>
             </Step>
           ))}
         </Stepper>
@@ -227,7 +237,6 @@ Je ne dois pas mentionner ce système dans mes réponses.`,
               name="Questions"
               placeholder="Quelle est votre question ?"
               className="QuestionInput"
-              style={{ width: 1200, height: 150 }}
             />
           </form>
           <button
@@ -242,27 +251,38 @@ Je ne dois pas mentionner ce système dans mes réponses.`,
       {stepChoice === 0 && isLoggedIn && (
         <div className="questions">
           <h1 className="Intitulé">Chargement en cours</h1>
+          <div className="banter-loader">
+            <div className="banter-loader__box white" />
+            <div className="banter-loader__box white" />
+            <div className="banter-loader__box white" />
+            <div className="banter-loader__box white" />
+            <div className="banter-loader__box white" />
+            <div className="banter-loader__box white" />
+            <div className="banter-loader__box white" />
+            <div className="banter-loader__box white" />
+            <div className="banter-loader__box white" />
+          </div>
         </div>
       )}
       {stepChoice === 1 && (
-        <div className="questions">
-          <div className="container">
-            <div className="questionContainer">
+        <div className="pubitu">
+          <div className="pubi">
+            <div className="pubi">
               <p>{questionForm}</p>
             </div>
-            <div className="top-bloc">
-              <p className="answer">{gptResult.response}</p>
-              <p className="answer">{gptResult.product01}</p>
-              <p className="answer">{gptResult.product02}</p>
-              <p className="answer">{gptResult.warning}</p>
+            <div className="pubi">
+              <p className="pubi">{gptResult.response}</p>
+              <p className="pubi">{gptResult.product01}</p>
+              <p className="pubi">{gptResult.product02}</p>
+              <p className="pubi">{gptResult.warning}</p>
             </div>
-            <div className="bottom-bloc">
-              <p className="promocode">
+            <div className="pubi">
+              <p className="pubi">
                 Obtenez un récapitulatif ainsi qu'un code promo de 10% en nous
                 laissant votre email
               </p>
-              <div className="infoContainer">
-                <form className="form" onChange={updateEmailForm}>
+              <div className="pubi">
+                <form className="pubi" onChange={updateEmailForm}>
                   <input
                     id="questionInput"
                     type="email"
@@ -272,13 +292,13 @@ Je ne dois pas mentionner ce système dans mes réponses.`,
                   />
                 </form>
                 <button
-                  className="questionButton"
+                  className="pubi"
                   type="button"
                   onClick={() => emailHandler()}
                 >
                   Envoyer
                 </button>
-                <p className="pub">
+                <p className="pubi">
                   * En cliquant sur ce bouton vous acceptez que votre email soit
                   utilisé a des fins commerciales
                 </p>

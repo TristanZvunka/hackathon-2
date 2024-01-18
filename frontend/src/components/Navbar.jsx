@@ -31,6 +31,8 @@ function Navbar() {
     height: "5rem",
     justifyContent: "space-between",
     padding: "0.5rem 1rem 0.5rem 1rem",
+    position: "fixed",
+    top: 0,
   };
 
   const buttonSX = {
