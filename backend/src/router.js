@@ -6,6 +6,7 @@ const userControllers = require("./controllers/userControllers");
 const blacklistControllers = require("./controllers/blacklistControllers");
 const emailControllers = require("./controllers/emailControllers");
 const dataControllers = require("./controllers/dataControllers");
+const requestControllers = require("./controllers/requestControllers");
 
 const { authCheck } = require("./services/authCheckMiddleware");
 const { hashPassword } = require("./services/auth");
@@ -20,6 +21,8 @@ router.post("/datas", dataControllers.add);
 
 router.post("/users/login", userControllers.login);
 router.get("/users/check-id", userControllers.checkId);
+
+router.get("/requests", requestControllers.readAll);
 
 router.use(authCheck);
 

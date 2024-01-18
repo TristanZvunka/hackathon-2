@@ -18,6 +18,7 @@ import Admin from "./pages/Admin";
 import AdminList from "./pages/AdminUserlist";
 import AdminBlacklist from "./pages/AdminBlacklist";
 import AdminWordlist from "./pages/AdminWordlist";
+import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/admin-wordlist",
         element: <AdminWordlist />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },
