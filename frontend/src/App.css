@@ -13,39 +13,44 @@
 
 body {
   background-color: #e6e3de;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 /*questions css*/
-
-.questions {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  background-size: cover;
+.questionscontent {
+  background-color: rgb(32, 31, 31);
 }
 
 .questions {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
-  min-height: 89.6vh;
+  min-height: 100vh;
   background-color: rgb(32, 31, 31);
+}
+
+div span,
+span.MuiStepLabel-label.Mui-active.MuiStepLabel-alternativeLabel.css-1hv8oq8-MuiStepLabel-label {
+  color: white;
+}
+
+span.MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel.css-1hv8oq8-MuiStepLabel-label {
+  color: white;
 }
 
 .Intitulé {
   color: #e6e3de;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
-  padding-bottom: 1rem;
+  position: fixed;
+  margin-top: calc(11rem + 60px);
 }
 .Button-Question {
-  width: 15rem;
+  position: fixed;
+  width: 50%;
   height: 4rem;
-  margin-top: 2rem;
-  margin-left: 1rem;
+  margin-top: 29rem;
   font-size: 2rem;
   border-radius: 1rem;
   background: none;
@@ -61,16 +66,18 @@ body {
     color: #e6e3de;
   }
 }
+
 .QuestionInput {
-  width: 20rem;
-  height: 2rem;
-  margin-top: 2rem;
-  font-size: 2rem;
-  font-weight: bold;
+  width: 50%;
+  position: fixed;
+  margin-top: 23rem;
+  transform: translateX(-50%);
+  padding: 1rem;
   text-align: center;
-  border-radius: 1.5rem;
   background-color: #e6e3de;
   color: #000;
+  border-radius: 16px;
+  font-size: larger;
 }
 
 .container {
@@ -95,6 +102,7 @@ body {
     min-height: 4rem;
   }
 }
+
 .top-bloc {
   min-height: 30rem;
   min-width: 40rem;
@@ -204,11 +212,13 @@ body {
 /* home page */
 
 .homepage-body-content {
+  padding-top: 20rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 99vw;
-  height: 80vh;
+  height: 65vh;
+  overflow-y: hidden;
 }
 
 .content-button {
@@ -216,7 +226,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 15rem;
+  bottom: 20rem;
   left: 50%;
   translate: -50%;
 }
@@ -248,6 +258,55 @@ body {
 @media screen and (max-width: 500px) {
   .navbar-menu-desktop {
     display: none;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 800px) {
+  .Intitulé {
+    font-size: 2rem;
+    margin-top: calc(10rem + 60px);
+  }
+  .QuestionInput {
+    width: 80%;
+    margin-top: 19.5rem;
+  }
+  .Button-Question {
+    width: 80%;
+    margin-top: 25rem;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 500px) {
+  .Intitulé {
+    font-size: 1.5rem;
+    margin-top: calc(10rem + 60px);
+  }
+  .QuestionInput {
+    width: 80%;
+    margin-top: 18rem;
+  }
+  .Button-Question {
+    width: 80%;
+    margin-top: 23.5rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .Intitulé {
+    font-size: 1.5rem;
+    margin-top: calc(10rem + 60px);
+  }
+  .QuestionInput {
+    width: 80%;
+    margin-top: 17rem;
+  }
+  .Button-Question {
+    width: 80%;
+    margin-top: 22rem;
+  }
+
+  .content-button {
+    bottom: 8rem;
   }
 }
 
@@ -285,4 +344,14 @@ body {
   background-color: white;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   z-index: 10;
+  top: 5rem;
+}
+
+.pubitu {
+  padding-top: 15rem;
+  height: 100vh;
+}
+
+.pubi {
+  margin-top: 1rem;
 }

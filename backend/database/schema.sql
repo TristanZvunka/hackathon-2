@@ -1,3 +1,4 @@
+USE hackathon2;
 create table if not exists email
 (
     id    int unsigned auto_increment
