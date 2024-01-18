@@ -97,7 +97,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 8rem;
+  bottom: 25vh;
   left: 50%;
   translate: -50%;
 }
@@ -126,12 +126,6 @@ body {
 .spline {
   position: absolute;
   z-index: -1;
-  width: 100vw;
-  max-height: 100vh;
-}
-
-.home-page-button {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  width: 90vw;
+  max-height: 90vh;
 }
