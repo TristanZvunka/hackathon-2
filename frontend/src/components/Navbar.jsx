@@ -52,8 +52,13 @@ function Navbar() {
             <Typography sx={fontSX}> Beauty IA </Typography>
           </Button>
           <div className="menu-divider" />
-          <Button color="inherit" sx={buttonSX}>
-            <Typography sx={fontSX}> Contact </Typography>
+          <Button
+            color="inherit"
+            sx={buttonSX}
+            component={Link}
+            to="https://www.loreal-paris.fr/"
+          >
+            <Typography sx={fontSX}> Boutique </Typography>
           </Button>
           <div className="menu-divider" />
         </div>
