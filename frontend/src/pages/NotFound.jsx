@@ -29,7 +29,7 @@ export default function NotFound() {
     >
       <Container
         sx={{
-          width: "15%",
+          width: "10%",
           display: "flex",
           flexDirection: "column",
           textAlign: "center",
