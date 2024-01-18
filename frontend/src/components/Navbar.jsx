@@ -6,9 +6,25 @@ import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
+import axios from "axios";
+import { useState, useEffect } from "react";
 import favicon from "../assets/HomeIcon.svg";
 
 function Navbar() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/requests`)
+      .then((res) => {
+        setCount(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
   const navbarSX = {
     backgroundColor: "#28292C",
     flexDirection: "row",
@@ -46,6 +62,8 @@ function Navbar() {
             </Button>
           </Link>
           <div className="navbar-menu navbar-menu-desktop">
+            <div className="menu-divider" />
+            <Typography sx={fontSX}> {count} Requetes </Typography>
             <div className="menu-divider" />
             <Button
               color="inherit"

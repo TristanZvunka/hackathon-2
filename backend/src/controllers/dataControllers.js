@@ -27,6 +27,16 @@ const add = async (req, res, next) => {
         await tables.data.update(mot[i], count); // eslint-disable-line
       }
     }
+
+    const request = await tables.request.readAll();
+
+    if (request.length === 0) {
+      await tables.request.create(1); // eslint-disable-line
+    } else {
+      const counter = request[0].count + 1;
+      await tables.request.update(counter); // eslint-disable-line
+    }
+
     res.status(201).send({ phrase });
   } catch (err) {
     next(err);

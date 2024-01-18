@@ -31,3 +31,9 @@ create table if not exists user
         unique (email)
 );
 
+
+create table request (
+  id int unsigned primary key auto_increment not null,
+  count INT NOT NULL
+);
+
