@@ -11,7 +11,7 @@ import emailjs from "emailjs-com";
 import "../App.css";
 
 const openai = new OpenAI({
-  apiKey: `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`,
+  apiKey: `API KEY`,
   dangerouslyAllowBrowser: true,
 });
 
