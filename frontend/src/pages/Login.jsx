@@ -133,7 +133,7 @@ export default function SignInSide() {
   if (!valid) {
     return (
       <ThemeProvider theme={defaultTheme}>
-        <Grid container component="main" sx={{ height: "100vh" }}>
+        <Grid container component="main" sx={{ height: "calc(100vh - 5rem)" }}>
           <CssBaseline />
           <Grid
             item
@@ -142,7 +142,7 @@ export default function SignInSide() {
             md={7}
             sx={{
               backgroundImage:
-                "url(https://i.pinimg.com/564x/be/e0/8e/bee08e825afc275c227ce4adc98d1d00.jpg)",
+                "url(https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg)",
               backgroundRepeat: "no-repeat",
               backgroundColor: (t) =>
                 t.palette.mode === "light"
@@ -176,7 +176,7 @@ export default function SignInSide() {
               }}
             >
               <Typography component="h1" variant="h5">
-                Se Connecter
+                Panneau Administrateur
               </Typography>
               <Box
                 component="form"
