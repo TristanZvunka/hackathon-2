@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 
 import Button from "@mui/material/Button";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
@@ -10,9 +10,35 @@ import "./loader.css";
 
 const Spline = React.lazy(() => import("@splinetool/react-spline"));
 
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Nettoyage du listener lorsqu'un composant est démonté
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Le tableau de dépendances est vide, ce qui signifie que cela s'exécutera une seule fois à l'initialisation du composant
+
+  return windowSize;
+}
+
 function HomePage() {
   const buttonStyle = {
     borderRadius: "5px",
+    textAlign: "center",
     border: "2px solid #28292C",
     fontWeight: "bold",
     fontSize: "medium",
@@ -30,28 +56,54 @@ function HomePage() {
     margin: "0 1rem 0 1rem",
   };
 
+  const windowSize = useWindowSize();
+
   return (
     <div className="homepage-body-content">
-      <Suspense
-        fallback={
-          <div className="banter-loader">
-            <div className="banter-loader__box" />
-            <div className="banter-loader__box" />
-            <div className="banter-loader__box" />
-            <div className="banter-loader__box" />
-            <div className="banter-loader__box" />
-            <div className="banter-loader__box" />
-            <div className="banter-loader__box" />
-            <div className="banter-loader__box" />
-            <div className="banter-loader__box" />
-          </div>
-        }
-      >
-        <Spline
-          className="spline"
-          scene="https://prod.spline.design/ISRA1bZLQVEKa8wW/scene.splinecode"
-        />
-      </Suspense>
+      {windowSize.width > 1240 ? (
+        <Suspense
+          fallback={
+            <div className="banter-loader">
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+            </div>
+          }
+        >
+          <Spline
+            className="spline"
+            scene="https://prod.spline.design/ISRA1bZLQVEKa8wW/scene.splinecode"
+          />
+        </Suspense>
+      ) : (
+        <Suspense
+          fallback={
+            <div className="banter-loader">
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+              <div className="banter-loader__box" />
+            </div>
+          }
+        >
+          <Spline
+            className="spline"
+            scene="https://prod.spline.design/JfMMsIHTS1I-eKHt/scene.splinecode"
+          />
+        </Suspense>
+      )}
+
       <div className="content-button">
         <ArrowForwardIosRoundedIcon sx={arrowSx} />
         <Button sx={buttonStyle} component={Link} to="/beauty-ia">
