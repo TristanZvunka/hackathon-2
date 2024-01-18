@@ -9,7 +9,7 @@ function Navbar() {
   const navbarSX = {
     backgroundColor: "#28292C",
     flexDirection: "row",
-    height: "4rem",
+    height: "5rem",
     justifyContent: "space-between",
     padding: "0.5rem 1rem 0.5rem 1rem",
   };
