@@ -11,7 +11,16 @@ class EmailManager extends AbstractManager {
       [email]
     );
 
-    return result.insertId;
+    return result;
+  }
+
+  async read(email) {
+    const [result] = await this.database.query(
+      `select * from ${this.table} where email = ?`,
+      [email]
+    );
+
+    return result;
   }
 }
 
