@@ -106,7 +106,7 @@ export default function Admin() {
 
   if (isLoggedIn) {
     return (
-      <div className="min-h-screen h-auto flex items-center flex-col mt-28 p-4">
+      <div className="min-h-screen h-auto flex items-center flex-col mt-28 p-4 bg-[#e6e3de]">
         <h1 className="text-3xl md:text-5xl bold text-center">
           Liste des Mots Blacklist
         </h1>
@@ -116,7 +116,7 @@ export default function Admin() {
             <form onChange={updateForm} className="w-full">
               <input
                 placeholder="Rechercher une liste"
-                className="bg-secondary-dark text-primary-dark outline-0 w-full"
+                className="bg-[#e6e3de] text-primary-dark outline-0 w-full"
               />
             </form>
           </div>
@@ -129,7 +129,7 @@ export default function Admin() {
             >
               <input
                 placeholder="Mot"
-                className="w-full text-center outline-0"
+                className="w-full text-center outline-0 bg-[#e6e3de]"
               />
             </form>
             <button
@@ -158,7 +158,7 @@ export default function Admin() {
   }
   return (
     <main>
-      <div className="flex justify-center items-center flex-col h-screen text-center">
+      <div className="flex justify-center items-center flex-col h-screen text-center bg-[#e6e3de]">
         <Lottie
           loop
           animationData={mailError}

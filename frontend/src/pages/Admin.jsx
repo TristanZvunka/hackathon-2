@@ -45,7 +45,7 @@ export default function Admin() {
 
   if (isLoggedIn) {
     return (
-      <div className="min-h-screen h-auto flex items-center flex-col mt-28 p-4">
+      <div className="min-h-screen h-auto flex items-center flex-col mt-28 p-4 bg-[#e6e3de]">
         <h1 className="text-3xl md:text-5xl bold text-center">Panel Admin</h1>
         <h2 className="text-2xl md:text-4xl mt-16 text-center">Stats:</h2>
         <p className="text-xl md:text-2xl text-center">
@@ -84,7 +84,7 @@ export default function Admin() {
   }
   return (
     <main>
-      <div className="flex justify-center items-center flex-col h-screen text-center">
+      <div className="flex justify-center items-center flex-col h-screen text-center bg-[#e6e3de]">
         <Lottie
           loop
           animationData={mailError}

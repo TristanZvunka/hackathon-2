@@ -30,8 +30,6 @@ const add = async (req, res, next) => {
   try {
     const blacklist = await tables.blacklist.read(mot);
 
-    console.info(blacklist);
-
     if (blacklist === undefined) {
       await tables.blacklist.create(mot);
       await tables.data.delete(mot);

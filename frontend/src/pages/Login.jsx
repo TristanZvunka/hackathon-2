@@ -118,7 +118,7 @@ export default function SignInSide() {
   if (isLoggedIn) {
     return (
       <main>
-        <div className="flex justify-center items-center flex-col h-screen text-center">
+        <div className="flex justify-center items-center flex-col h-screen text-center bg-[#e6e3de]">
           <Lottie
             loop
             animationData={LogInProgress}
@@ -224,7 +224,7 @@ export default function SignInSide() {
     );
   }
   return (
-    <div className="flex justify-center items-center flex-col h-screen">
+    <div className="flex justify-center items-center flex-col h-screen bg-[#e6e3de]">
       <Lottie
         loop
         animationData={LogInProgress}

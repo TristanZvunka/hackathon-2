@@ -6,6 +6,7 @@ import StepLabel from "@mui/material/StepLabel";
 import OpenAI from "openai";
 import axios from "axios";
 import { toast } from "react-toastify";
+import emailjs from "emailjs-com";
 
 import "../App.css";
 
@@ -14,17 +15,84 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true,
 });
 
-const steps = ["Posez votre question", "Choisisez votre rendu", "Résultat"];
+const steps = ["Posez votre question", "Résultat"];
 
 export default function Questions() {
   const [stepChoice, setStepChoice] = useState(0);
 
   const [questionForm, setQuestionForm] = useState("");
+  const [emailForm, setEmailForm] = useState("");
+
   const [gptResult, setGptResult] = useState({}); // eslint-disable-line
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   function updateForm(e) {
     setQuestionForm(e.target.value);
   }
+
+  const isEmailValid = (value) => {
+    const emailPattern = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/;
+    return emailPattern.test(value);
+  };
+
+  function updateEmailForm(e) {
+    setEmailForm(e.target.value);
+  }
+
+  const emailHandler = async () => {
+    if (!isEmailValid(emailForm)) {
+      toast.error("Votre email n'est pas valide", {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else {
+      axios
+        .post(
+          `${import.meta.env.VITE_BACKEND_URL}/api/emails`,
+          {
+            email: emailForm,
+          },
+          {
+            withCredentials: true,
+          }
+        )
+        .then((response) => {
+          emailjs.init("1tsnVu6m1OYTd4YKX");
+          emailjs
+            .send("service_aano7tg", "template_l2oqxg6", {
+              email: emailForm,
+              response: gptResult.response,
+              product01: gptResult.product01,
+              product02: gptResult.product02,
+              warning: gptResult.warning,
+            })
+            .then(
+              () => {
+                toast.success(response.data.message, {
+                  position: "top-right",
+                  autoClose: 3300,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+                });
+              },
+              (error) => {
+                console.error(error.text);
+              }
+            );
+        });
+    }
+  };
 
   const sendHandler = async () => {
     if (questionForm === "") {
@@ -72,6 +140,11 @@ export default function Questions() {
         theme: "light",
       });
     } else {
+      const but = document.querySelector(".Button-Question");
+      but.disabled = true;
+
+      setIsLoggedIn(true);
+
       const response = await openai.chat.completions.create({
         messages: [
           {
@@ -111,7 +184,9 @@ Je ne dois pas mentionner ce système dans mes réponses.`,
         phrase: questionForm,
       });
 
+      setIsLoggedIn(false);
       setStepChoice(stepChoice + 1);
+      but.disabled = false;
     }
   };
 
@@ -133,7 +208,7 @@ Je ne dois pas mentionner ce système dans mes réponses.`,
         </Stepper>
       </Box>
 
-      {stepChoice === 0 && (
+      {stepChoice === 0 && !isLoggedIn && (
         <div className="questions">
           <h1 className="Intitulé">Votre Question bien-être</h1>
           <form className="form" onChange={updateForm}>
@@ -155,63 +230,52 @@ Je ne dois pas mentionner ce système dans mes réponses.`,
           </button>
         </div>
       )}
+      {stepChoice === 0 && isLoggedIn && (
+        <div className="questions">
+          <h1 className="Intitulé">Chargement en cours</h1>
+        </div>
+      )}
       {stepChoice === 1 && (
         <div className="questions">
           <div className="container">
-            <div className="left-bloc">
-              <p className="answer">
-                Recevez votre réponse directement mais sans code promo
-              </p>
-              <button
-                className="Button-Question"
-                type="button"
-                onClick={() => setStepChoice(stepChoice + 1)}
-              >
-                Recevoir
-              </button>
+            <div className="questionContainer">
+              <p>{questionForm}</p>
             </div>
-            <div className="step-divider" />
-            <div className="right-bloc">
+            <div className="top-bloc">
+              <p className="answer">{gptResult.response}</p>
+              <p className="answer">{gptResult.product01}</p>
+              <p className="answer">{gptResult.product02}</p>
+              <p className="answer">{gptResult.warning}</p>
+            </div>
+            <div className="bottom-bloc">
               <p className="promocode">
-                Recevez votre réponse par mail et recevez un code promo de 10%
+                Obtenez un récapitulatif ainsi qu'un code promo de 10% en nous
+                laissant votre email
               </p>
-              <form className="form">
-                <input
-                  id="questionInput"
-                  type="text"
-                  name="Questions"
-                  placeholder="EMAIL"
-                  className="EmailInput"
-                  style={{
-                    width: 400,
-                    height: 50,
-                    borderRadius: 20,
-                    textAlign: "center",
-                    fontSize: 20,
-                    fontWeight: "bold",
-                  }}
-                />
-              </form>
-              <button
-                className="Button-Question"
-                type="button"
-                onClick={() => setStepChoice(stepChoice + 1)}
-              >
-                Envoyer
-              </button>
+              <div className="infoContainer">
+                <form className="form" onChange={updateEmailForm}>
+                  <input
+                    id="questionInput"
+                    type="email"
+                    name="Questions"
+                    placeholder="Email"
+                    className="EmailInput"
+                  />
+                </form>
+                <button
+                  className="questionButton"
+                  type="button"
+                  onClick={() => emailHandler()}
+                >
+                  Envoyer
+                </button>
+                <p className="pub">
+                  * En cliquant sur ce bouton vous acceptez que votre email soit
+                  utilisé a des fins commerciales
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-      {stepChoice === 2 && (
-        <div className="questions">
-          <button
-            className="Button-Question"
-            type="button"
-            onClick={() => setStepChoice(stepChoice + 1)}
-          >
-            Terminer
-          </button>
         </div>
       )}
     </div>
