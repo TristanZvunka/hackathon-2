@@ -11,7 +11,7 @@ export default function Questions() {
   const [stepChoice, setStepChoice] = useState(0);
 
   return (
-    <>
+    <div className="questionscontent">
       <Box
         sx={{
           width: "100%",
@@ -43,7 +43,7 @@ export default function Questions() {
           </form>
           <button
             type="button"
-            className="Envoyer"
+            className="Button-Question"
             onClick={() => setStepChoice(stepChoice + 1)}
           >
             Envoyer
@@ -51,14 +51,64 @@ export default function Questions() {
         </div>
       )}
       {stepChoice === 1 && (
-        <div>
-          <h1>Step Two</h1>
-          <button type="button" onClick={() => setStepChoice(stepChoice + 1)}>
-            Next
+        <div className="questions">
+          <div className="container">
+            <div className="left-bloc">
+              <p className="answer">
+                Recevez votre réponse directement mais sans code promo
+              </p>
+              <button
+                className="Button-Question"
+                type="button"
+                onClick={() => setStepChoice(stepChoice + 1)}
+              >
+                Recevoir
+              </button>
+            </div>
+            <div className="step-divider" />
+            <div className="right-bloc">
+              <p className="promocode">
+                Recevez votre réponse par mail et recevez un code promo de 10%
+              </p>
+              <form className="form">
+                <input
+                  id="questionInput"
+                  type="text"
+                  name="Questions"
+                  placeholder="EMAIL"
+                  className="EmailInput"
+                  style={{
+                    width: 400,
+                    height: 50,
+                    borderRadius: 20,
+                    textAlign: "center",
+                    fontSize: 20,
+                    fontWeight: "bold",
+                  }}
+                />
+              </form>
+              <button
+                className="Button-Question"
+                type="button"
+                onClick={() => setStepChoice(stepChoice + 1)}
+              >
+                Envoyer
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {stepChoice === 2 && (
+        <div className="questions">
+          <button
+            className="Button-Question"
+            type="button"
+            onClick={() => setStepChoice(stepChoice + 1)}
+          >
+            Terminer
           </button>
         </div>
       )}
-      {stepChoice === 2 && <h1>Step Three</h1>}
-    </>
+    </div>
   );
 }

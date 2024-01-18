@@ -16,7 +16,14 @@ body {
   background-color: linear-gradient(145deg, #f6f3ee, #cfccc8);
 }
 
-/* ------- */
+/*questions css*/
+
+.questions {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-size: cover;
+}
 
 .questions {
   display: flex;
@@ -24,7 +31,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   background-color: rgb(32, 31, 31);
 }
 
@@ -34,14 +41,13 @@ body {
   font-weight: bold;
   padding-bottom: 1rem;
 }
-
-.Envoyer {
+.Button-Question {
   width: 15rem;
   height: 4rem;
   margin-top: 2rem;
   margin-left: 1rem;
   font-size: 2rem;
-  border-radius: 8rem;
+  border-radius: 1rem;
   background: none;
   color: #e6e3de;
   border: 2px solid #e6e3de;
@@ -50,7 +56,6 @@ body {
     color: #000;
   }
 }
-
 .QuestionInput {
   width: 20rem;
   height: 2rem;
@@ -58,15 +63,69 @@ body {
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   background-color: #e6e3de;
   color: #000;
 }
 
-/* navbar */
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.left-bloc {
+  height: 30rem;
+  width: 40rem;
+  padding: 2rem;
+  border: 1px solid #e6e3de;
+  border-radius: 2rem;
+  margin-top: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.right-bloc {
+  height: 30rem;
+  width: 40rem;
+  padding: 2rem;
+  border: 1px solid #e6e3de;
+  margin-top: 20rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-divider {
+  width: 1px;
+  height: 40rem;
+  background-color: white;
+  margin: 15rem 15rem;
+}
+
+.answer {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #e6e3de;
+}
+
+.promocode {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  color: #e6e3de;
+}
+
+/*..........*/
+
+body {
+  margin: 0;
+  background-color: white;
+}
 
 .navbar-logo {
-  width: 10rem;
+  width: 8rem;
   margin-left: 0.5rem;
 }
 
@@ -97,7 +156,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 25vh;
+  bottom: 8rem;
   left: 50%;
   translate: -50%;
 }
@@ -126,6 +185,12 @@ body {
 .spline {
   position: absolute;
   z-index: -1;
-  width: 90vw;
-  max-height: 90vh;
+  width: 100vw;
+  max-height: 100vh;
+}
+
+.home-page-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
