@@ -109,7 +109,7 @@ export default function SignInSide() {
         if (response.data.message === "OK") {
           setIsLoggedIn(true);
           setTimeout(() => {
-            window.location.href = "/";
+            window.location.href = "/admin";
           }, 3800);
         }
       });
