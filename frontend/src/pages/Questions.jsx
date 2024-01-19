@@ -55,7 +55,7 @@ export default function Questions() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
       });
     } else {
       axios
@@ -93,7 +93,7 @@ export default function Questions() {
                   pauseOnHover: true,
                   draggable: true,
                   progress: undefined,
-                  theme: "light",
+                  theme: "dark",
                 });
               },
               (error) => {
@@ -114,7 +114,7 @@ export default function Questions() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
       });
     } else if (questionForm.length < 10) {
       toast.error("Votre question est trop courte", {
@@ -125,7 +125,7 @@ export default function Questions() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
       });
     } else if (questionForm.length > 256) {
       toast.error("Votre question est trop longue", {
@@ -136,7 +136,7 @@ export default function Questions() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
       });
     } else if (questionForm.split(" ").length < 4) {
       toast.error("Votre question est trop courte", {
@@ -147,7 +147,7 @@ export default function Questions() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
       });
     } else {
       const but = document.querySelector(".Button-Question");
