@@ -255,13 +255,13 @@ body {
 
 /* cacahuète */
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .navbar-menu-desktop {
     display: none;
   }
 }
 
-@media screen and (min-width: 501px) and (max-width: 800px) {
+@media screen and (min-width: 601px) and (max-width: 800px) {
   .Intitulé {
     font-size: 2rem;
     margin-top: calc(10rem + 60px);
@@ -276,7 +276,7 @@ body {
   }
 }
 
-@media screen and (min-width: 400px) and (max-width: 500px) {
+@media screen and (min-width: 400px) and (max-width: 600px) {
   .Intitulé {
     font-size: 1.5rem;
     margin-top: calc(10rem + 60px);
@@ -308,9 +308,13 @@ body {
   .content-button {
     bottom: 8rem;
   }
+  .pubitulic {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 601px) {
   .navbar-menu-mobile {
     display: none;
   }
@@ -348,10 +352,64 @@ body {
 }
 
 .pubitu {
-  padding-top: 15rem;
-  height: 100vh;
+  padding: 15rem 3rem 1rem 3rem;
+  min-width: auto;
+  max-width: 870px;
+  margin: 0 auto 0 auto;
 }
 
 .pubi {
   margin-top: 1rem;
+  color: #e6e3de;
+  font-size: 1.2rem;
+}
+
+.questionText {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.repqst {
+  font-weight: 600;
+}
+
+.pubitulic {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  border-radius: 1rem;
+}
+
+.leftside {
+  margin: 0;
+  width: 50%;
+  padding: 0 2rem 1rem 2rem;
+}
+
+.textito {
+  font-size: 0.6rem;
+}
+
+.rightside {
+  border-radius: 5px;
+  padding: 0.5rem;
+  width: 100%;
+  border: 2px solid #e6e3de;
+}
+
+.boutonenvoyer {
+  &:enabled:hover {
+    background-color: #e6e3de;
+    color: #000;
+  }
+}
+
+.textatata {
+  margin-top: 2rem;
+  border-radius: 5px;
+  padding: 1rem;
+  padding-top: 2rem;
+  border: 2px solid #e6e3de;
+  font-size: medium;
+  text-align: center;
 }

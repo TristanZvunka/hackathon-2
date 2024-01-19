@@ -6,10 +6,37 @@ import { Link } from "react-router-dom";
 
 import mailError from "../../public/Error.json";
 
-export default function Admin() {
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Nettoyage du listener lorsqu'un composant est démonté
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Le tableau de dépendances est vide, ce qui signifie que cela s'exécutera une seule fois à l'initialisation du composant
+
+  return windowSize;
+}
+
+function Admin() {
   const [datas, setDatas] = useState([]);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const windowSize = useWindowSize();
 
   const getData = () => {
     const endpoints = [`${import.meta.env.VITE_BACKEND_URL}/api/datas`];
@@ -59,14 +86,18 @@ export default function Admin() {
 
   if (isLoggedIn) {
     return (
-      <div className="min-h-screen h-auto flex items-center flex-col mt-28 p-4 bg-[#e6e3de]">
+      <div className="min-h-[80vh] flex items-center flex-col mt-40 p-4 bg-[#e6e3de]">
         <h1 className="text-3xl md:text-5xl bold text-center">Panel Admin</h1>
         <h2 className="text-2xl md:text-4xl mt-16 text-center">Stats:</h2>
         <p className="text-xl md:text-2xl text-center">
           Mot les plus utilisé dans les questions
         </p>
         <div className="flex flex-col justify-center items-center mt-2">
-          <BarChart width={1000} height={400} data={datas}>
+          <BarChart
+            width={windowSize.width - 300}
+            height={windowSize.height - 500}
+            data={datas}
+          >
             <XAxis dataKey="mot" />
             <YAxis />
             <Tooltip content={<CustomTooltip />} />
@@ -116,3 +147,5 @@ export default function Admin() {
     </main>
   );
 }
+
+export default Admin;

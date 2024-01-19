@@ -15,7 +15,7 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true,
 });
 
-const steps = ["Ma Question", "Réponse"];
+const steps = ["Question", "Réponse"];
 
 export default function Questions() {
   const [stepChoice, setStepChoice] = useState(0);
@@ -268,42 +268,54 @@ Je ne dois pas mentionner ce système dans mes réponses.`,
         <div className="pubitu">
           <div className="pubi">
             <div className="pubi">
-              <p>{questionForm}</p>
-            </div>
-            <div className="pubi">
-              <p className="pubi">{gptResult.response}</p>
-              <p className="pubi">{gptResult.product01}</p>
-              <p className="pubi">{gptResult.product02}</p>
-              <p className="pubi">{gptResult.warning}</p>
-            </div>
-            <div className="pubi">
-              <p className="pubi">
-                Obtenez un récapitulatif ainsi qu'un code promo de 10% en nous
-                laissant votre email
+              <p className="pubi questionText">
+                Votre question était :<br />"{questionForm}"
               </p>
-              <div className="pubi">
-                <form className="pubi" onChange={updateEmailForm}>
-                  <input
-                    id="questionInput"
-                    type="email"
-                    name="Questions"
-                    placeholder="Email"
-                    className="EmailInput"
-                  />
-                </form>
-                <button
-                  className="pubi"
-                  type="button"
-                  onClick={() => emailHandler()}
-                >
-                  Envoyer
-                </button>
-                <p className="pubi">
-                  * En cliquant sur ce bouton vous acceptez que votre email soit
-                  utilisé a des fins commerciales
-                </p>
-              </div>
             </div>
+
+            {gptResult.error ? (
+              <div className="pubi">
+                <p className="pubi">{gptResult.error}</p>
+              </div>
+            ) : (
+              <div>
+                <div className="pubi">
+                  <p className="pubi">{gptResult.response}</p>
+                  <p className="pubi repqst">Les produits sont :</p>
+                  <p className="pubi repqst">{gptResult.product01}</p>
+                  <p className="pubi repqst">{gptResult.product02}</p>
+                  <p className="pubi">{gptResult.warning}</p>
+                </div>
+                <div className="pubitulic">
+                  <p className="pubi leftside textatata">
+                    Obtenez un récapitulatif ainsi qu'un code promo de 10% en
+                    nous laissant votre email
+                  </p>
+                  <div className="pubi leftside ">
+                    <form className="pubi" onChange={updateEmailForm}>
+                      <input
+                        id="questionInput"
+                        type="email"
+                        name="Questions"
+                        placeholder="Email"
+                        className="EmailInput rightside"
+                      />
+                    </form>
+                    <button
+                      className="pubi rightside boutonenvoyer"
+                      type="button"
+                      onClick={() => emailHandler()}
+                    >
+                      Envoyer
+                    </button>
+                    <p className="pubi textito">
+                      * En cliquant sur ce bouton vous acceptez que votre email
+                      soit utilisé a des fins commerciales
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}

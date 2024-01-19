@@ -50,6 +50,11 @@ function Navbar() {
     fontSize: "medium",
   };
 
+  const fontSX2 = {
+    fontWeight: "small",
+    fontSize: "small",
+  };
+
   return (
     <>
       <Box>
@@ -65,7 +70,7 @@ function Navbar() {
           </Link>
           <div className="navbar-menu navbar-menu-desktop">
             <div className="menu-divider" />
-            <Typography sx={fontSX}> {count} Requetes </Typography>
+            <Typography sx={fontSX}> {count} Recherche </Typography>
             <div className="menu-divider" />
             <Button
               color="inherit"
@@ -91,6 +96,7 @@ function Navbar() {
             <div className="menu-divider" />
           </div>
           <div className="navbar-menu navbar-menu-mobile">
+            <Typography sx={fontSX2}> {count} Recherches </Typography>
             <IconButton
               color="inherit"
               sx={(fontSX, buttonSX)}
