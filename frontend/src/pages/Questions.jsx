@@ -313,7 +313,7 @@ Je ne dois pas mentionner ce système dans mes réponses.`,
                     nous laissant votre email
                   </p>
                   <div className="pubi leftside ">
-                    <form className="pubi" onChange={updateEmailForm}>
+                    <form className="bipu" onChange={updateEmailForm}>
                       <input
                         id="questionInput"
                         type="email"
