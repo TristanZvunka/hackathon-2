@@ -70,7 +70,7 @@ function Navbar() {
           </Link>
           <div className="navbar-menu navbar-menu-desktop">
             <div className="menu-divider" />
-            <Typography sx={fontSX}> {count} Recherche </Typography>
+            <Typography sx={fontSX}> {count} Recherches </Typography>
             <div className="menu-divider" />
             <Button
               color="inherit"
