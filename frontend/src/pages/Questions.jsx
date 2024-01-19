@@ -308,7 +308,7 @@ Je ne dois pas mentionner ce système dans mes réponses.`,
                   </TypeIt>
                 </div>
                 <div className="pubitulic">
-                  <p className="pubi leftside textatata">
+                  <p className="bipupu leftside textatata">
                     Obtenez un récapitulatif ainsi qu'un code promo de 10% en
                     nous laissant votre email
                   </p>

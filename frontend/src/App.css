@@ -370,6 +370,11 @@ body {
   font-size: 1.2rem;
 }
 
+.bipupu {
+  color: #e6e3de;
+  font-size: 1.2rem;
+}
+
 .questionText {
   font-size: 1.5rem;
   font-weight: bold;
@@ -381,9 +386,9 @@ body {
 
 .pubitulic {
   display: flex;
-  align-items: center;
   margin-top: 1rem;
   border-radius: 1rem;
+  height: 8rem;
 }
 
 .leftside {
@@ -411,11 +416,12 @@ body {
 }
 
 .textatata {
-  margin-top: 2rem;
+  margin-top: 1rem;
   border-radius: 5px;
   padding: 1rem;
   padding-top: 2rem;
   border: 2px solid #e6e3de;
   font-size: medium;
   text-align: center;
+  font-weight: 700;
 }
