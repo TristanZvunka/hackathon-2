@@ -75,7 +75,7 @@ function Admin() {
     // eslint-disable-next-line
     if (active && payload && payload.length) {
       return (
-        <div className="py-4 px-2 border-2 border-[#e6e3de] text-[#e6e3de] rounded-xl ">
+        <div className="py-4 px-2 border-2 border-[#e6e3de] text-[#e6e3de] rounded-xl bg-[#252525] ">
           <p>Mot: {label}</p>
           {/* eslint-disable-next-line */}
           <p>Utilisation: {payload[0].value}</p>
