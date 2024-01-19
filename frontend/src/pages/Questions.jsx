@@ -7,6 +7,7 @@ import OpenAI from "openai";
 import axios from "axios";
 import { toast } from "react-toastify";
 import emailjs from "emailjs-com";
+import TypeIt from "typeit-react";
 
 import "../App.css";
 
@@ -265,7 +266,7 @@ Je ne dois pas mentionner ce système dans mes réponses.`,
         </div>
       )}
       {stepChoice === 1 && (
-        <div className="pubitu">
+        <div className="pubitu min-h-screen">
           <div className="pubi">
             <div className="pubi">
               <p className="pubi questionText">
@@ -275,16 +276,36 @@ Je ne dois pas mentionner ce système dans mes réponses.`,
 
             {gptResult.error ? (
               <div className="pubi">
-                <p className="pubi">{gptResult.error}</p>
+                <TypeIt
+                  options={{
+                    speed: 25,
+                  }}
+                >
+                  {gptResult.error}
+                </TypeIt>
               </div>
             ) : (
               <div>
                 <div className="pubi">
-                  <p className="pubi">{gptResult.response}</p>
-                  <p className="pubi repqst">Les produits sont :</p>
-                  <p className="pubi repqst">{gptResult.product01}</p>
-                  <p className="pubi repqst">{gptResult.product02}</p>
-                  <p className="pubi">{gptResult.warning}</p>
+                  <TypeIt
+                    options={{
+                      speed: 25,
+                    }}
+                  >
+                    {gptResult.response} <br />
+                    <br />
+                    <span className="repqst">Les produits sont :</span>
+                    <br />
+                    <br /> <span className="repqst">
+                      {gptResult.product01}
+                    </span>{" "}
+                    <br />
+                    <br /> <span className="repqst">
+                      {gptResult.product02}
+                    </span>{" "}
+                    <br />
+                    <br /> {gptResult.warning}
+                  </TypeIt>
                 </div>
                 <div className="pubitulic">
                   <p className="pubi leftside textatata">
