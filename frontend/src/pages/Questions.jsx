@@ -236,7 +236,7 @@ Je ne dois pas mentionner ce système dans mes réponses.`,
               id="questionInput"
               type="text"
               name="Questions"
-              placeholder="Quelle est votre question ?"
+              placeholder="Quelle-est votre problématique beauté ?"
               className="QuestionInput"
             />
           </form>
