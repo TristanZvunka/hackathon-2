@@ -334,7 +334,7 @@ body {
   font-size: 1rem;
   width: 2600px;
   animation-name: infiniteScroll;
-  animation-duration: 20s;
+  animation-duration: 35s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }

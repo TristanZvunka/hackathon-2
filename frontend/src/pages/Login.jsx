@@ -212,7 +212,7 @@ export default function SignInSide() {
                   type="submit"
                   fullWidth
                   variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
+                  sx={{ mt: 4, mb: 2, padding: "0.8rem" }}
                 >
                   Se Connecter
                 </Button>
